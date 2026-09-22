@@ -152,3 +152,9 @@ Sddl   : O:S-1-5-21-4132158795-2060570990-1823972835-1001G:S-1-5-21-4132158795-2
 ## 4. Git & Versionshantering (Kursmål 10)
 
 ## 5. AI-logg & Reflektion (Kursmål 11)
+### Förtext
+***Jag kör på "tillfällig" eller inkognito-session på Gemini AI för att utesluta minne eller personliga referenser.***
+
+```
+
+```
