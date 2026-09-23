@@ -156,5 +156,29 @@ Sddl   : O:S-1-5-21-4132158795-2060570990-1823972835-1001G:S-1-5-21-4132158795-2
 ***Jag kör på "tillfällig" eller inkognito-session på Gemini AI för att utesluta minne eller personliga referenser.***
 
 ```
+**Prompt/Jag:**"Hej! Jag håller på att sätta upp en Ubuntu-server för ett konsultbolag. 
 
+Jag behöver skapa mappen /var/systementor/konsultdata och i den ska det ligga en tom fil som heter anteckningar.txt. Jag har även en lokal användargrupp som heter konsulter.
+
+Hur konfigurerar jag katalog, fil, ägarskap och rättigheter i Linux så att konsulterna kan navigera i mappen och läsa anteckningarna utan att få "permission denied"? Ge mig de exakta terminalkommandona och förklara hur rättigheterna fungerar."
+
+Gemini AI:"För att ge gruppen konsulter behörighet att navigera till mappen och läsa filen skapar du strukturen, sätter gruppägarskapet till konsulter och tilldelar läs- och exekveringsrättigheter.TerminalkommandonKör följande kommandon med sudo:Bash# 1. Skapa katalogstrukturen (flaggan -p skapar även överkatalogen /var/systementor om den saknas)
+sudo mkdir -p /var/systementor/konsultdata
+
+# 2. Skapa den tomma textfilen
+sudo touch /var/systementor/konsultdata/anteckningar.txt
+
+# 3. Sätt ägarskapet: root som ägande användare och konsulter som ägande grupp
+sudo chown -R root:konsulter /var/systementor/konsultdata
+
+# 4. Sätt katalogrättigheter: full åtkomst för ägaren, läs- och navigeringsrättighet för gruppen, ingen åtkomst för övriga
+sudo chmod 750 /var/systementor/konsultdata
+
+# 5. Sätt filrättigheter: läs- och skrivrättighet för ägaren, läsrättighet för gruppen, ingen åtkomst för övriga
+sudo chmod 640 /var/systementor/konsultdata/anteckningar.txt
+VerifieringKontrollera att rättigheter och ägarskap applicerades korrekt:Kontrollera katalogen:Bashls -ld /var/systementor/konsultdata
+Lyckat resultat: Utskriften ska börja med drwxr-x--- och visa ägarskapet root konsulter.Kontrollera filen:Bashls -l /var/systementor/konsultdata/anteckningar.txt
+Lyckat resultat: Utskriften ska börja med -rw-r----- och visa ägarskapet root konsulter.Funktionstest som en konsult-användare:Ersätt <användarnamn> med en användare som är medlem i konsulter:Bashsudo -u <användarnamn> ls -l /var/systementor/konsultdata
+sudo -u <användarnamn> cat /var/systementor/konsultdata/anteckningar.txt
+Lyckat resultat: Kommandona körs utan felmeddelandet Permission denied.Hur Linux-rättigheterna fungerarRättigheter i Linux delas in i tre nivåer: Ägare (User), Grupp (Group) och Övriga (Others).RättighetTeckenVärdeBetydelse för filBetydelse för katalogLäs (Read)r4Läsa filens innehåll (cat, less)Lista filer och mappar (ls)Skriv (Write)w2Redigera och spara ändringar i filenSkapa, radera och döpa om filer i mappenKör (Execute)x1Köra filen som ett program/skriptNavigera in i mappen (cd) och nå filer inutiVarför sattes 750 på katalogen?7 (4+2+1 = rwx) för Ägaren (root): Kan lista, ändra och navigera fritt.5 (4+0+1 = r-x) för Gruppen (konsulter): r ger rättighet att lista innehållet, medan x är det kritiska attributet som tillåter användaren att navigera in i katalogen (cd) och nå filer inuti den. Utan x uppstår Permission denied vid försök att gå in i katalogen.0 (---) för Övriga: Obehöriga användare på servern nekas åtkomst helt.Varför sattes 640 på filen?6 (4+2+0 = rw-) för Ägaren (root): Får både läsa och skriva.4 (4+0+0 = r--) för Gruppen (konsulter): Ger enbart läsrättighet. Vill du att konsulterna även ska kunna redigera anteckningarna byter du till 660 (rw-rw----).0 (---) för Övriga: Ingen åtkomst.Kravet på överordnade kataloger (Traversal)För att en användare ska nå /var/systementor/konsultdata krävs att användaren har x-rättighet på alla kataloger i sökvägen (/, /var, /var/systementor). När katalogen skapades med mkdir -p tilldelades överkatalogen /var/systementor standardrättigheten 755 (drwxr-xr-x), vilket tillåter medlemmar i gruppen att passera igenom den."
 ```
