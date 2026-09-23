@@ -151,6 +151,22 @@ Sddl   : O:S-1-5-21-4132158795-2060570990-1823972835-1001G:S-1-5-21-4132158795-2
 ```
 ## 4. Git & Versionshantering (Kursmål 10)
 
+## [<ins> ***Länk till uppgiften/labben*** </ins>](https://github.com/Soroeze/labb-git)
+
+```
+PS C:\Users\Frostgrim\labb-git> git log --oneline
+91b6ca7 (HEAD -> main, origin/main, origin/HEAD) Gjort klart AI-logg och Reflektioner
+2e05231 Synkar README.md
+59004c2 Avslutar här för dagen
+139b3e6 Nu är kommando avklarat!
+ae1c028 Klar med Labbmiljö och nätverk
+3c2fd1f Såg att vi behövde göra en specifik struktur. Gjorde om mycket. Bytte till README.md
+03595e3 docs: ersätt README.md med innehållet från Labbdokumentation.md
+e59f26c docs: synka labbdokumentation till README.md
+2fa628e Rubriker och formateringar/markdown
+:
+```
+![Bilden på gitlog --oneline](img/gitlog.png)
 ## 5. AI-logg & Reflektion (Kursmål 11)
 ### Förtext
 ***Jag kör på "tillfällig" eller inkognito-session på Gemini AI för att utesluta minne eller personliga referenser.***
