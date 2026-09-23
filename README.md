@@ -7,7 +7,7 @@
 
 ## 2. Labbmiljö & Nätverk (Kursmål 8)
 ### Felsökning
-Windows 11 har oftast standard att inte tillåta ping/ICMP in till sig själv men ut går bra. Fick köra kommandot "netsh advfirewall firewall add rule name="Let ping in" protocol=icmpv4:any,any dir=in action=allow"<sup>1</sup> i CMD
+Windows 11 har oftast standard att inte tillåta ping/ICMP in till sig själv men ut går bra. Fick köra kommandot "netsh advfirewall firewall add rule name="Let ping in" protocol=icmpv4:any,any dir=in action=allow i CMD
 
 ### VMs och nätverk
 | Hostname                     | Operativsystem     | IP-adress       | Subnätmask    | Standard Gateway |
@@ -276,7 +276,7 @@ drwxr-x--- 2 root konsulter 4096 Sep 23 21:00 /var/systementor/konsultdata
 ```
 
 ### Analys av AI och reflektioner
-Var vänligen att hänvisa tillbaka till [prompt och svar](#prompt-och-svar) om det behövs.
+Var vänligen att hänvisa tillbaka till [Prompt och svar](#prompt-och-svar) om det behövs.
 
 Jag testade att köra prompt som vi har gjort föregående på [Kommandoradsgenomförande](#3-kommandoradsgenomförande-kursmål-9). Där vi satte rättigheter, mappar och filer för gruppen "konsulter".
 Hittills så är Gemini AI korrekt och den förklarar bra. 
@@ -302,10 +302,12 @@ drwxr-xr-x 3 root root      4096 Sep 22 20:04 ..
 
 ##### Gemini AI
 ```
+-||-
 drwxr-x--- 2 root konsulter 4096 Sep 23 21:00 /var/systementor/konsultdata
 -rw-r----- 1 root konsulter    0 Sep 23 21:00 /var/systementor/konsultdata/anteckningar.txt
 ```
+### Slutsats
 
-Som sagt, ganska nära men allt beror ju på hur man skriver för argument på angivna kommando. 
+Slutligen kan vi nu säga att det var ganska nära/snarlik men allt beror ju på hur man skriver för argument på angivna kommando och i detta fallet, hur nära prompten är till vår genomförande av kommandon. 
 Jag använde "ls -la" och Gemini AI använde "ls -ld" och "ls" för att hålla det kort, lätt och förståeligt för mäniskliga ögon.
-Så vi kan avsluta med att säga att det verkar inte visa några hallucinationer, föråldrade kod/kommando och inte heller några säkerhetsbrister. Men det är också grundläggande koder och kommandon.
+Vi kan avsluta med att säga att det verkar inte visa några hallucinationer, föråldrade kod/kommando och inte heller några säkerhetsbrister. Men det är också grundläggande koder och kommandon.
