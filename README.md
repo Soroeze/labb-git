@@ -177,9 +177,13 @@ e59f26c docs: synka labbdokumentation till README.md
 Prompt/Jag:
 "Hej! Jag håller på att sätta upp en Ubuntu-server för ett konsultbolag. 
 
-Jag behöver skapa mappen /var/systementor/konsultdata och i den ska det ligga en tom fil som heter anteckningar.txt. Jag har även en lokal användargrupp som heter konsulter.
+Jag behöver skapa mappen /var/systementor/konsultdata och
+i den ska det ligga en tom fil som heter anteckningar.txt. 
+Jag har även en lokal användargrupp som heter konsulter.
 
-Hur konfigurerar jag katalog, fil, ägarskap och rättigheter i Linux så att konsulterna kan navigera i mappen och läsa anteckningarna utan att få "permission denied"? Ge mig de exakta terminalkommandona och förklara hur rättigheterna fungerar."
+Hur konfigurerar jag katalog, fil, ägarskap och rättigheter i Linux
+så att konsulterna kan navigera i mappen och 
+läsa anteckningarna utan att få "permission denied"? Ge mig de exakta terminalkommandona och förklara hur rättigheterna fungerar."
 ```
 ##### Svar
 ```
@@ -309,5 +313,5 @@ drwxr-x--- 2 root konsulter 4096 Sep 23 21:00 /var/systementor/konsultdata
 ### Slutsats
 
 Slutligen kan vi nu säga att det var ganska nära/snarlik men allt beror ju på hur man skriver för argument på angivna kommando och i detta fallet, hur nära prompten är till vår genomförande av kommandon. 
-Jag använde "ls -la" och Gemini AI använde "ls -ld" och "ls" för att hålla det kort, lätt och förståeligt för mäniskliga ögon.
+Jag använde "ls -la" och Gemini AI använde "ls -ld" och "ls" för att hålla det kort, lätt och förståeligt för mänskliga ögon.
 Vi kan avsluta med att säga att det verkar inte visa några hallucinationer, föråldrade kod/kommando och inte heller några säkerhetsbrister. Men det är också grundläggande koder och kommandon.
